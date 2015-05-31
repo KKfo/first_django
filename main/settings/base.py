@@ -15,19 +15,29 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+#  Function to fetch the key from an enviroment variable in bash.
+
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the %s environment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =
+
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Edit: I manage this part on the settings folder depending on the env using virtualenv and virtualenvwrapper
 # DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
