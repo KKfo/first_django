@@ -63,3 +63,6 @@ key_patch.txt
 #*
 *#
 *~
+#Django
+db.sqlite3
+__pycache__

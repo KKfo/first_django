@@ -13,7 +13,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
  
     def test_it_worked(self):
-        self.browser.get('http://localhost:8002')
+        self.browser.get('http://localhost:8000')
         self.assertIn('Welcome to Django', self.browser.title)
  
 if __name__ == '__main__':
